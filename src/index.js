@@ -1,9 +1,20 @@
 import './input.css';
 import { api } from './api';
 
-const test = document.createElement('p');
-test.textContent = "test";
+// api.getInfo();
 
-api.getInfo();
+const content = (() => {
+  const daWeather = document.createElement('h1');
+  daWeather.textContent = "Da Weather";
+  
+  const location = document.createElement('h2');
+  location.setAttribute('id', 'location');
+  
+  
+  document.body.appendChild(daWeather);
+  document.body.appendChild(location);
 
-document.body.appendChild(test);
+  return {daWeather, location};
+})();
+
+export {content}
