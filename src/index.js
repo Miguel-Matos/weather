@@ -16,14 +16,14 @@ const form = (() => {
   submit.setAttribute('id', 'submit');
   form.appendChild(submit);
 
-  const cf = document.createElement('button');
-  cf.textContent = "C/F";
-  cf.setAttribute('id', 'cf');
-  form.appendChild(cf);
+  // const cf = document.createElement('button');
+  // cf.textContent = "C/F";
+  // cf.setAttribute('id', 'cf');
+  // form.appendChild(cf);
 
   document.body.appendChild(form);
 
-  return {search, submit, cf};
+  return {search, submit};
 })();
 
 const content = (() => {
