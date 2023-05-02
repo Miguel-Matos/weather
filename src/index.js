@@ -6,7 +6,7 @@ import { api } from './api';
 
 const form = (() => {
   const form = document.createElement('form');
-  form.classList.add('flex', 'flex-col', 'py-10', 'items-center');
+  form.classList.add('flex', 'flex-col', 'pt-10', 'pb-8', 'items-center');
   const search = document.createElement('input');
   search.classList.add('border', 'rounded-xl', 'p-2', 'w-4/5', 'sm:w-96', 'focus:bg-slate-100', 'hover:bg-slate-100');
   search.type = 'text';
@@ -36,11 +36,11 @@ const content = (() => {
   daWeather.classList.add('text-white', 'text-4xl', 'p-2');
   
   const location = document.createElement('h2');
-  location.classList.add('text-8xl');
+  location.classList.add('text-7xl');
   location.setAttribute('id', 'location');
 
   const country = document.createElement('h4');
-  country.classList.add('text-xl')
+  country.classList.add('text-2xl', 'mt-2');
   country.setAttribute('id', 'country');
 
   const condition = document.createElement('p');
@@ -59,7 +59,6 @@ const content = (() => {
   core.classList.add('flex', 'flex-col', 'items-center', 'text-white', 'gap-3')
 
   const body = document.querySelector('body', 'text-white');
-  body.classList.add('bg-gradient-to-b', 'from-sky-400', 'to-sky-600', 'h-screen');
   
   // document.body.appendChild(daWeather);
   body.appendChild(form.form);
@@ -76,7 +75,8 @@ const content = (() => {
 
 const getWeather = (() => {
   // let f = true;
-  let place = undefined;
+  let place = 'tokyo';
+
   form.submit.addEventListener('click', (e) => {
     if (form.search.value !== '') {
       e.preventDefault();
@@ -86,23 +86,14 @@ const getWeather = (() => {
       api.callAsync(value);
       form.search.value = '';
     }
+
   });
 
-  // form.cf.addEventListener('click', (e) => {
-  //   e.preventDefault();
-
-  //   if (f === true) {
-  //     f = false;
-  //     api.callAsync(place);
-  //     console.log('C');
-  //   } else {
-  //     f = true;
-  //     api.callAsync(place);
-  //     console.log('F');
-  //   }
-  // });
-
-  // return {f}
+  // setInterval(() => {
+  //   api.callAsync(place);
+  // }, 3000);
+  
+  return {place};
 })();
 
 export {content, form, getWeather}
