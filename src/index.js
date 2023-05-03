@@ -8,14 +8,14 @@ const form = (() => {
   const form = document.createElement('form');
   form.classList.add('flex', 'flex-col', 'pt-10', 'pb-8', 'items-center');
   const search = document.createElement('input');
-  search.classList.add('border', 'rounded-xl', 'p-2', 'w-4/5', 'sm:w-96', 'focus:bg-slate-100', 'hover:bg-slate-100');
+  search.classList.add('border', 'rounded-xl', 'p-2', 'w-4/5', 'sm:w-96', 'focus:bg-slate-100', 'hover:bg-slate-100', 'shadow-xl');
   search.type = 'text';
   search.placeholder = 'Location';
   search.setAttribute('id', 'search');
   form.appendChild(search);
 
   const submit = document.createElement('button');
-  submit.classList.add('bg-white', 'w-32', 'rounded-xl', 'mt-8', 'hover:shadow-xl')
+  submit.classList.add('bg-white', 'w-32', 'rounded-xl', 'mt-8', 'shadow-xl', 'hover:bg-slate-100', 'focus:bg-slate-300')
   submit.textContent = "Get Weather";
   submit.setAttribute('id', 'submit');
   form.appendChild(submit);
@@ -89,9 +89,9 @@ const getWeather = (() => {
 
   });
 
-  // setInterval(() => {
-  //   api.callAsync(place);
-  // }, 3000);
+  setInterval(() => {
+    api.callAsync(place);
+  }, 60000);
   
   return {place};
 })();
